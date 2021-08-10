@@ -22,7 +22,7 @@ public class HomeController implements IController {
 
     public void process(final HttpServletRequest request, final HttpServletResponse response, final ServletContext servletContext, final ITemplateEngine templateEngine) throws Exception {
         WebContext ctx = new WebContext(request, response, servletContext, request.getLocale());
-        ctx.setVariable("site_name", "Mflix");
+        ctx.setVariable("site_name", "Huyflix");
 
         ConnectionString connectionString = new ConnectionString("mongodb+srv://root:root@cluster0.71wmt.mongodb.net/sample_mflix?retryWrites=true&w=majority");
         MongoClientSettings settings = MongoClientSettings.builder()
