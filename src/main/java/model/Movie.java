@@ -18,6 +18,7 @@ public class Movie {
     private String poster;
     private List<String> directors;
     private List<String> writers;
+    private int runtime;
     private List<String> countries;
     private List<String> genres;
 }
