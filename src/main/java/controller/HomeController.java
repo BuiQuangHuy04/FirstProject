@@ -2,7 +2,6 @@ package controller;
 
 import model.Movie;
 import org.thymeleaf.ITemplateEngine;
-import org.thymeleaf.context.WebContext;
 import service.MovieService;
 
 import javax.servlet.ServletContext;
@@ -10,11 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-public class HomeController implements IController {
+public class HomeController extends MyController {
 
     public void process(final HttpServletRequest request, final HttpServletResponse response, final ServletContext servletContext, final ITemplateEngine templateEngine) throws Exception {
-        WebContext ctx = new WebContext(request, response, servletContext, request.getLocale());
-
+        super.process(request, response, servletContext, templateEngine);
         String by = null;
         String value = null;
         String text = null;
@@ -59,6 +57,4 @@ public class HomeController implements IController {
         ctx.setVariable("list", list);
         templateEngine.process("index", ctx, response.getWriter());
     }
-
-
 }

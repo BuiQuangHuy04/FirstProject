@@ -13,12 +13,12 @@
 
 <main class="container mt-3" th:object="${movie}">
     <h1 th:text="*{title}">Movie Name</h1>
-    <span th:text="*{year}" class="text-primary">2017</span> - <span th:text="*{runtime}">88</span> mins <span th:if="*{rated!=null}" th:text="' - '+*{rated}"> - Rated</span>
+    <span th:text="*{year}" class="text-primary">2017</span> - <span th:text="*{runtime}">88</span> mins <span th:if="*{rated!=null}" th:text="' - '+*{rated}"></span>
 
     <div class="row  mt-3">
         <div class="col-md-8 order-md-1 order-2">
             <hr>
-            <b>Genres:</b> <span class="text-primary" th:each="text,iterStat : *{genres}" th:text="${text}+ ${!iterStat.last ? ', ' : ''}">Action, Crime, Drama</span>
+            🎞 <b>Genres:</b> <span class="text-primary" th:each="text,iterStat : *{genres}" th:text="${text}+ ${!iterStat.last ? ', ' : ''}"></span>
 
             <div th:if="*{fullplot!=null}">
                 <hr>
@@ -26,30 +26,30 @@
             </div>
 
             <hr>
-            <b>Director:</b> <span class="text-primary" th:each="text,iterStat : *{directors}" th:text="${text}+ ${!iterStat.last ? ', ' : ''}">James</span>
+            🎬 <b>Director:</b> <span class="text-primary" th:each="text,iterStat : *{directors}" th:text="${text}+ ${!iterStat.last ? ', ' : ''}"></span>
             <div th:if="*{writers!=null}">
                 <hr>
-                <b>Writers:</b> <span class="text-primary" th:each="text,iterStat : *{writers}" th:text="${text}+ ${!iterStat.last ? ', ' : ''}">David, Peter</span>
+                ✍ <b>Writers:</b> <span class="text-primary" th:each="text,iterStat : *{writers}" th:text="${text}+ ${!iterStat.last ? ', ' : ''}"></span>
             </div>
             <hr>
-            <b>Stars:</b> <span class="text-primary" th:each="text,iterStat : *{cast}" th:text="${text}+ ${!iterStat.last ? ', ' : ''}">Tom Hanks, Leonardo</span>
+            🌟 <b>Stars:</b> <span class="text-primary" th:each="text,iterStat : *{cast}" th:text="${text}+ ${!iterStat.last ? ', ' : ''}"></span>
 
             <hr>
-            <b>Languages:</b> <span class="text-primary" th:each="text,iterStat : *{languages}" th:text="${text}+ ${!iterStat.last ? ', ' : ''}">Tom Hanks, Leonardo</span>
-            <b>Countries:</b> <span class="text-primary" th:each="text,iterStat : *{countries}" th:text="${text}+ ${!iterStat.last ? ', ' : ''}">USA, UK</span>
+            🌎 <b>Languages:</b> <span class="text-primary" th:each="text,iterStat : *{languages}" th:text="${text}+ ${!iterStat.last ? ', ' : ''}"></span>
+            🗺 <b>Countries:</b> <span class="text-primary" th:each="text,iterStat : *{countries}" th:text="${text}+ ${!iterStat.last ? ', ' : ''}"></span>
 
             <hr>
-            <b>Awards:</b> <span th:text="*{awards.text}">Awards</span>
+            🏆 <b>Awards:</b> <span th:text="*{awards.text}">Awards</span>
 
             <div th:if="*{tomatoes.critic!=null}">
                 <hr>
-                <b>Tomatometer rating:</b> <span th:text="*{tomatoes.critic.rating}">8.8 </span> (<span th:text="*{tomatoes.critic.numReviews}">20</span> reviews)
-                <b>Audience rating:</b> <span th:text="*{tomatoes.viewer.rating}">8.8 </span> (<span th:text="*{tomatoes.viewer.numReviews}">20</span> reviews)
+                🍅 <b>Tomatometer rating:</b> <span th:text="*{tomatoes.critic.rating}">8.8 </span> (<span th:text="*{tomatoes.critic.numReviews}">20</span> reviews)
+                🍿 <b>Audience rating:</b> <span th:text="*{tomatoes.viewer.rating}">8.8 </span> (<span th:text="*{tomatoes.viewer.numReviews}">20</span> reviews)
             </div>
 
             <div th:if="*{imdb.rating>0}">
                 <hr>
-                <b>IMDB:</b> <span th:text="*{imdb.rating}">8.8 </span> (<span th:text="*{imdb.votes}">20</span> votes)
+                👍 <b>IMDB:</b> <span th:text="*{imdb.rating}">8.8 </span> (<span th:text="*{imdb.votes}"></span> votes)
             </div>
 
             <hr>
@@ -72,13 +72,13 @@
                             <div class="d-flex">
                                 <img th:src="@{/images/user.svg}" src="../images/user.svg" alt="avatar" width="40" height="40"/>
                                 <div class="d-flex flex-column ">
-                                    <p class="small m-0 ms-2"><span th:text="${comment.name}">Martha</span></p>
-                                    <p class="small m-0 ms-2 text-muted"><span th:text="${comment.email}">Martha@gmail.com</span></p>
+                                    <p class="small m-0 ms-2"><span th:text="${comment.name}"></span></p>
+                                    <p class="small m-0 ms-2 text-muted"><span th:text="${comment.email}"></span></p>
                                 </div>
-                                <div class="flex-grow-1 text-end small m-0 ms-2 text-muted"><span th:text="${comment.getTimeAgo()}">32 mins ago</span></div>
+                                <div class="flex-grow-1 text-end small m-0 ms-2 text-muted"><span th:text="${comment.getTimeAgo()}"></span></div>
                             </div>
 
-                            <div class="mt-2"><span th:text="${comment.text}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span></div>
+                            <div class="mt-2"><span th:text="${comment.text}"></span></div>
 
                         </div>
                     </div>
