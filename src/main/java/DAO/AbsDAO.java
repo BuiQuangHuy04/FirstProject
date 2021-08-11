@@ -4,13 +4,11 @@ import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import model.Movie;
-import org.bson.Document;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 public abstract class AbsDAO {
 
@@ -21,6 +19,7 @@ public abstract class AbsDAO {
             ConnectionString connectionString = new ConnectionString("mongodb+srv://root:root@cluster0.71wmt.mongodb.net/sample_mflix?retryWrites=true&w=majority");
             MongoClientSettings settings = MongoClientSettings.builder()
                     .applyConnectionString(connectionString)
+                    .codecRegistry(fromRegistries(MongoClientSettings.getDefaultCodecRegistry(), fromProviders(PojoCodecProvider.builder().automatic(true).build())))
                     .build();
             MongoClient mongoClient = MongoClients.create(settings);
             db = mongoClient.getDatabase("sample_mflix");
@@ -28,5 +27,4 @@ public abstract class AbsDAO {
         }
         return db;
     }
-
 }
