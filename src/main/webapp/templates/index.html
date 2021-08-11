@@ -14,6 +14,7 @@
 </header>
 
 <main>
+    <div th:replace="~{fragments/frontend::breadcrumb}"></div>
     <div class="container pt-5" th:fragment="grid">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <div class="col" th:each="movie : ${list}">
