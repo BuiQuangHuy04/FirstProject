@@ -1,5 +1,6 @@
 .carousel-item{
-    height: 600px;
+    height: 100%;
+    width: 100%;
 }
 
 .card-img-top{
