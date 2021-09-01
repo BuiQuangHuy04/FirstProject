@@ -1,4 +1,4 @@
-package DAO;
+package DAO.MongoDB;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
@@ -20,4 +20,5 @@ public class CommentDAO extends AbsDAO {
         comment.setDate(new Date());
         comments.insertOne(comment);
     }
+
 }

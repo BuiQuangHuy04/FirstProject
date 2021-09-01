@@ -1,6 +1,6 @@
 package service;
 
-import DAO.CommentDAO;
+import DAO.MongoDB.CommentDAO;
 import com.mongodb.client.FindIterable;
 import model.Comment;
 import org.bson.Document;
@@ -15,7 +15,9 @@ public class CommentService {
         return list;
     }
 
-    public void addComment(Comment comment) {
+
+    public String addComment(Comment comment) {
         new CommentDAO().addComment(comment);
+        return "Done";
     }
 }

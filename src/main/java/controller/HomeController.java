@@ -45,15 +45,14 @@ public class HomeController extends MyController {
         ctx.setVariable("showCarousel", showCarousel);
         ctx.setVariable("showBreadcrumb", showBreadcrumb);
 
-        long totalPages = new MovieService().getTotalPages(by, value, text);
+        long totalPages = new MovieService(movieDAO).getTotalPages(by, value, text);
         ctx.setVariable("totalPages", totalPages);
         int page = 1;
         if (request.getParameter("page") != null)
             page = Integer.parseInt(request.getParameter("page").trim());
         ctx.setVariable("page", page);
 
-
-        List<Movie> list = new MovieService().searchMovies(by, value, page, text);
+        List<Movie> list = new MovieService(movieDAO).searchMovies(by, value, page, text);
         ctx.setVariable("list", list);
         templateEngine.process("index", ctx, response.getWriter());
     }
